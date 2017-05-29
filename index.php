@@ -95,6 +95,12 @@
                 break;
         }
     });
+
+    $( document ).ready(function() {
+        $("#type_user").load("php/ajax/listarRoles.php");
+    });
+
+
 </script>
 </body>
 </html>

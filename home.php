@@ -81,12 +81,9 @@
     <div class="inner_module">
         <div class="head_module">Nuevo Usuario</div>
         <div class="content_module">
-            <input type="text" placeholder="Usuario">
-            <input type="password" placeholder="Contraseña">
-            <select name="type_user" id="type_user">
-                <option value="1">Estudiante</option>
-                <option value="2">Editor</option>
-            </select>
+            <input type="text" placeholder="Usuario" id="usuario_nuevo">
+            <input type="password" placeholder="Contraseña" id="password_nuevo">
+            <select name="type_user" id="type_user"></select>
         </div>
         <div class="button_module transition05"><span id="crearUsuario">Crear</span></div>
     </div>
