@@ -1,0 +1,357 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataSource name="crud_fuso@localhost">
+  <database-model serializer="dbm" rdbms="MYSQL" format-version="4.2">
+    <root id="1"/>
+    <schema id="2" parent="1" name="crud_fuso">
+      <Current>1</Current>
+      <Visible>1</Visible>
+    </schema>
+    <schema id="3" parent="1" name="aiuda"/>
+    <schema id="4" parent="1" name="ejercicio"/>
+    <schema id="5" parent="1" name="information_schema"/>
+    <schema id="6" parent="1" name="mysql"/>
+    <schema id="7" parent="1" name="performance_schema"/>
+    <schema id="8" parent="1" name="phpmyadmin"/>
+    <schema id="9" parent="1" name="platform"/>
+    <schema id="10" parent="1" name="test"/>
+    <table id="11" parent="2" name="leccion"/>
+    <table id="12" parent="2" name="modulo"/>
+    <table id="13" parent="2" name="modulo_categoria"/>
+    <table id="14" parent="2" name="modulo_leccion"/>
+    <table id="15" parent="2" name="rol"/>
+    <table id="16" parent="2" name="tipo_usuario"/>
+    <table id="17" parent="2" name="usuario"/>
+    <table id="18" parent="2" name="usuario_modulo"/>
+    <table id="19" parent="2" name="usuario_rol"/>
+    <column id="20" parent="11" name="idleccion">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="21" parent="11" name="lecc_modulo_id">
+      <Position>2</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="22" parent="11" name="lecc_nombre">
+      <Position>3</Position>
+      <DataType>varchar(45)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="23" parent="11" name="lecc_url">
+      <Position>4</Position>
+      <DataType>varchar(60)|0</DataType>
+    </column>
+    <column id="24" parent="11" name="lecc_create">
+      <Position>5</Position>
+      <DataType>timestamp|0</DataType>
+      <DefaultExpression>CURRENT_TIMESTAMP</DefaultExpression>
+    </column>
+    <key id="25" parent="11" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>idleccion</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="26" parent="12" name="idmodulo">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="27" parent="12" name="modu_nombre">
+      <Position>2</Position>
+      <DataType>varchar(50)|0</DataType>
+    </column>
+    <column id="28" parent="12" name="idmodulo_categoria">
+      <Position>3</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <column id="29" parent="12" name="modulo_create">
+      <Position>4</Position>
+      <DataType>timestamp|0</DataType>
+      <DefaultExpression>CURRENT_TIMESTAMP</DefaultExpression>
+    </column>
+    <index id="30" parent="12" name="modu_modulocategoria_idx">
+      <ColNames>idmodulo_categoria</ColNames>
+    </index>
+    <key id="31" parent="12" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>idmodulo</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="32" parent="12" name="modu_modulocategoria">
+      <ColNames>idmodulo_categoria</ColNames>
+      <RefSchemaName>crud_fuso</RefSchemaName>
+      <RefTableName>modulo_categoria</RefTableName>
+      <RefColNames>idmodulo_categoria</RefColNames>
+    </foreign-key>
+    <column id="33" parent="13" name="idmodulo_categoria">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="34" parent="13" name="moca_nombre">
+      <Position>2</Position>
+      <DataType>varchar(50)|0</DataType>
+    </column>
+    <column id="35" parent="13" name="modulo_categoria">
+      <Position>3</Position>
+      <DataType>timestamp|0</DataType>
+      <DefaultExpression>CURRENT_TIMESTAMP</DefaultExpression>
+    </column>
+    <key id="36" parent="13" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>idmodulo_categoria</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="37" parent="14" name="idmodulo_leccion">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="38" parent="14" name="idmodulo">
+      <Position>2</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <column id="39" parent="14" name="idleccion">
+      <Position>3</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <column id="40" parent="14" name="modulo_leccio_create">
+      <Position>4</Position>
+      <DataType>timestamp|0</DataType>
+      <DefaultExpression>CURRENT_TIMESTAMP</DefaultExpression>
+    </column>
+    <index id="41" parent="14" name="mole_leccion_idx">
+      <ColNames>idleccion</ColNames>
+    </index>
+    <index id="42" parent="14" name="mole_modulo_idx">
+      <ColNames>idmodulo</ColNames>
+    </index>
+    <key id="43" parent="14" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>idmodulo_leccion</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="44" parent="14" name="mole_modulo">
+      <ColNames>idmodulo</ColNames>
+      <RefSchemaName>crud_fuso</RefSchemaName>
+      <RefTableName>modulo</RefTableName>
+      <RefColNames>idmodulo</RefColNames>
+    </foreign-key>
+    <foreign-key id="45" parent="14" name="mole_leccion">
+      <ColNames>idleccion</ColNames>
+      <RefSchemaName>crud_fuso</RefSchemaName>
+      <RefTableName>leccion</RefTableName>
+      <RefColNames>idleccion</RefColNames>
+    </foreign-key>
+    <column id="46" parent="15" name="idrol">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="47" parent="15" name="rol_descripcion">
+      <Position>2</Position>
+      <DataType>varchar(60)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="48" parent="15" name="rol_create">
+      <Position>3</Position>
+      <DataType>timestamp|0</DataType>
+      <DefaultExpression>CURRENT_TIMESTAMP</DefaultExpression>
+    </column>
+    <key id="49" parent="15" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>idrol</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="50" parent="16" name="idtipo_usuario">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="51" parent="16" name="tius_nombre">
+      <Position>2</Position>
+      <DataType>varchar(45)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="52" parent="16" name="tipo_usuario_create">
+      <Position>3</Position>
+      <DataType>timestamp|0</DataType>
+      <DefaultExpression>CURRENT_TIMESTAMP</DefaultExpression>
+    </column>
+    <key id="53" parent="16" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>idtipo_usuario</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="54" parent="17" name="idusuario">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="55" parent="17" name="usua_nombre">
+      <Position>2</Position>
+      <DataType>varchar(50)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="56" parent="17" name="usua_apellido">
+      <Position>3</Position>
+      <DataType>varchar(50)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="57" parent="17" name="usua_correo">
+      <Position>4</Position>
+      <DataType>varchar(50)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="58" parent="17" name="usua_fecha_nacimiento">
+      <Position>5</Position>
+      <DataType>varchar(45)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="59" parent="17" name="usua_usuario">
+      <Position>6</Position>
+      <DataType>varchar(45)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="60" parent="17" name="usua_telefono">
+      <Position>7</Position>
+      <DataType>varchar(45)|0</DataType>
+    </column>
+    <column id="61" parent="17" name="usua_password">
+      <Position>8</Position>
+      <DataType>varchar(45)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="62" parent="17" name="usua_genero">
+      <Position>9</Position>
+      <DataType>varchar(45)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="63" parent="17" name="usua_pais">
+      <Position>10</Position>
+      <DataType>varchar(45)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="64" parent="17" name="usua_ciudad">
+      <Position>11</Position>
+      <DataType>varchar(45)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="65" parent="17" name="usua_create">
+      <Position>12</Position>
+      <DataType>timestamp|0</DataType>
+      <DefaultExpression>CURRENT_TIMESTAMP</DefaultExpression>
+    </column>
+    <column id="66" parent="17" name="idtipousuario">
+      <Position>13</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <index id="67" parent="17" name="usua_tipo_idx">
+      <ColNames>idtipousuario</ColNames>
+    </index>
+    <key id="68" parent="17" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>idusuario
+usua_correo</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="69" parent="17" name="usua_tipo">
+      <ColNames>idtipousuario</ColNames>
+      <RefSchemaName>crud_fuso</RefSchemaName>
+      <RefTableName>tipo_usuario</RefTableName>
+      <RefColNames>idtipo_usuario</RefColNames>
+    </foreign-key>
+    <column id="70" parent="18" name="idusuario_modulo">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="71" parent="18" name="idusuario">
+      <Position>2</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <column id="72" parent="18" name="idmodulo">
+      <Position>3</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <column id="73" parent="18" name="usmo_create">
+      <Position>4</Position>
+      <DataType>timestamp|0</DataType>
+      <DefaultExpression>CURRENT_TIMESTAMP</DefaultExpression>
+    </column>
+    <index id="74" parent="18" name="usmo_modulo_idx">
+      <ColNames>idmodulo</ColNames>
+    </index>
+    <index id="75" parent="18" name="usmo_usuario_idx">
+      <ColNames>idusuario</ColNames>
+    </index>
+    <key id="76" parent="18" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>idusuario_modulo</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="77" parent="18" name="usmo_usuario">
+      <ColNames>idusuario</ColNames>
+      <RefSchemaName>crud_fuso</RefSchemaName>
+      <RefTableName>usuario</RefTableName>
+      <RefColNames>idusuario</RefColNames>
+    </foreign-key>
+    <foreign-key id="78" parent="18" name="usmo_modulo">
+      <ColNames>idmodulo</ColNames>
+      <RefSchemaName>crud_fuso</RefSchemaName>
+      <RefTableName>modulo</RefTableName>
+      <RefColNames>idmodulo</RefColNames>
+    </foreign-key>
+    <column id="79" parent="19" name="idusuario_rol">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="80" parent="19" name="usua_rol_id_usuario">
+      <Position>2</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <column id="81" parent="19" name="usua_rol_id_rol">
+      <Position>3</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <column id="82" parent="19" name="usuario_rol_create">
+      <Position>4</Position>
+      <DataType>timestamp|0</DataType>
+      <DefaultExpression>CURRENT_TIMESTAMP</DefaultExpression>
+    </column>
+    <index id="83" parent="19" name="usua_rol_rol_idx">
+      <ColNames>usua_rol_id_rol</ColNames>
+    </index>
+    <index id="84" parent="19" name="usua_rol_usuario_idx">
+      <ColNames>usua_rol_id_usuario</ColNames>
+    </index>
+    <key id="85" parent="19" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>idusuario_rol</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="86" parent="19" name="usua_rol_usuario">
+      <ColNames>usua_rol_id_usuario</ColNames>
+      <RefSchemaName>crud_fuso</RefSchemaName>
+      <RefTableName>usuario</RefTableName>
+      <RefColNames>idusuario</RefColNames>
+    </foreign-key>
+    <foreign-key id="87" parent="19" name="usua_rol_rol">
+      <ColNames>usua_rol_id_rol</ColNames>
+      <RefSchemaName>crud_fuso</RefSchemaName>
+      <RefTableName>rol</RefTableName>
+      <RefColNames>idrol</RefColNames>
+    </foreign-key>
+  </database-model>
+</dataSource>
